@@ -1,13 +1,70 @@
+@layer base, library, carousel, carousel-custom;
+
+@import 'open-props/style' layer(base);
+@import 'open-props/normalize' layer(library);
+
+@import './utils/carousel.css' layer(carousel);
+@import 'custom-carousel-items.css' layer(carousel-custom);
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: grid;
+  gap: 10vh;
+  place-content: center;
+  overflow-x: hidden;
+  max-inline-size: 100vw;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body > section:first-of-type {
+  margin-block-start: 10vh;
+}
+
+body > section:last-of-type {
+  margin-block-end: 10vh;
+}
+
+section {
+  display: grid;
+  gap: 2vh;
+}
+
+section h2,
+section > header {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.github-corner {
+  position: absolute;
+  right: 4px;
+  width: 80px;
+  height: 80px;
+  fill: var(--surface-4);
+  color: var(--surface-1);
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+.github-corner > svg {
+  fill: inherit;
+  stroke: inherit;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
 }
