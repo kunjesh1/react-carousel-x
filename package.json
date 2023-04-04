@@ -2,7 +2,7 @@
   "name": "react-carousel-x",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "version": "0.1.5-alpha.3",
+  "version": "0.1.5-alpha.4",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "webpack --config webpack.config.js",
-    "build:css": "postcss src/index.css -o src/index.css",
+    "build:css": "postcss src/utils/carousel.css -o src/utils/carousel.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
