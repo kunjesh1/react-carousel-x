@@ -4,6 +4,8 @@
   "module": "dist/index.js",
   "version": "0.1.5-alpha.10",
   "dependencies": {
+    "@storybook/addon-actions": "^7.0.2",
+    "@storybook/addons": "^7.0.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -25,18 +27,30 @@
     "build": "webpack --config webpack.config.js",
     "build:css": "postcss src/utils/carousel.css -o src/utils/carousel.css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
+    "@storybook/addon-essentials": "^7.0.2",
+    "@storybook/addon-interactions": "^7.0.2",
+    "@storybook/addon-links": "^7.0.2",
+    "@storybook/blocks": "^7.0.2",
+    "@storybook/preset-create-react-app": "^7.0.2",
+    "@storybook/react": "^7.0.2",
+    "@storybook/react-webpack5": "^7.0.2",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "mini-css-extract-plugin": "^0.9.0",
     "open-props": "^1.5.7",
     "postcss": "^8.4.16",
     "postcss-custom-media": "^8.0.2",
     "postcss-preset-env": "7.8.0",
+    "storybook": "^7.0.2",
     "vite": "3.1.0",
     "webpack-cli": "^5.0.1"
   },
@@ -44,6 +58,16 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {

@@ -1,5 +1,3 @@
-import { scrollend } from "https://cdn.jsdelivr.net/gh/argyleink/scrollyfills@latest/dist/scrollyfills.modern.js";
-
 export default class Carousel {
   constructor(element) {
     this.elements = {
@@ -109,6 +107,8 @@ export default class Carousel {
     const { lastElementChild: last, firstElementChild: first } =
       this.elements.scroller;
 
+    console.log("Inside update controls", this.elements.scroller);
+
     const isAtEnd = this.current === last;
     const isAtStart = this.current === first;
 
@@ -135,7 +135,7 @@ export default class Carousel {
 
     // scrollend listener for sync
     this.elements.scroller.addEventListener(
-      "scrollend",
+      "scroll",
       this.#synchronize.bind(this)
     );
     this.elements.next.addEventListener("click", this.goNext.bind(this));
@@ -189,10 +189,15 @@ export default class Carousel {
       mutationList
         .filter((x) => x.removedNodes.length > 0)
         .forEach((mutation) => {
-          [...mutation.removedNodes]
-            .filter(
-              (x) => x.querySelector(".gui-carousel") === this.elements.root
-            )
+          console.log({ mutation });
+          const clonedArray = [...mutation.removedNodes];
+
+          clonedArray
+            .filter((x) => {
+              if (x.querySelector) {
+                return x?.querySelector(".gui-carousel") === this.elements.root;
+              }
+            })
             .forEach((removedEl) => {
               this.#unlisten();
             });
