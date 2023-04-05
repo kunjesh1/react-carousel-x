@@ -2,7 +2,7 @@
   "name": "react-carousel-x",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "version": "0.1.5-alpha.9",
+  "version": "0.1.5-alpha.10",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "style-loader": "^3.3.2",
+    "tailwindcss": "^3.3.1",
     "web-vitals": "^2.1.4",
     "webpack": "^5.77.0"
   },
